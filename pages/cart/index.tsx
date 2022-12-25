@@ -43,43 +43,7 @@ const cart: NextPage = () => {
                         </div>
                         <Button text="Continue To Checkout" />
                     </div>
-
-                </div>
-
-
-                {/* 
-                <div className="grid grid-cols-1 grid-rows-2 gap-5 bg-gray-100">
-                    {[1, 2, 3, 4, 5, 6].map((i) => (
-                        <div key={i} className="bg-white p-2 xs:col-span-1 rounded-2xl shadow-md shadow-gray-400 cursor-pointer">
-                            <div className="flex space-x-2">
-                                <div className="bg-red-400 w-2/3 h-64 rounded-lg" />
-
-
-                                <div className="flex w-1/3 pl-3">
-
-                                    <div className="flex flex-col justify-between w-full">
-                                        <div className="flex flex-col mt-1">
-                                            <span className="text-2xl font-md text-gray-800 mb-2">Sun Flower</span>
-                                            <span className="text-sm text-gray-600 text-right">Price: $200</span>
-                                            <span className="text-sm text-gray-600 text-right ">Qty: 5   aa</span>
-                                            <span className="text-sm text-gray-600 text-right border-t mt-2">Total: $1000</span>
-                                        </div>
-                                        <div className="flex justify-end">
-                                            <button className="bg-red-500 font-medium text-white rounded-lg flex p-2 w-full justify-center">remove</button>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    ))}
-                </div> */}
-                {/* <div className="bg-white max-w-xl text-gray-700 border-t fixed bottom-0 w-full px-10 pb-5 pt-3">
-                </div> */}
+                </div>              
             </div >
         </Layout>
     )
