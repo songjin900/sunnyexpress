@@ -1,11 +1,29 @@
-import { NextApiRequest, NextApiResponse } from "next"
-import client from "../../../libs/client/client"
+import client from "@libs/client/client";
+import withHandler from "@libs/server/withHandler";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const { phone, email } = req.body;
+    const payload = phone ? { phone: +phone } : { email };
 
-    if (req.method !== "POST") {
-        res.status(401).end();
-    }
-    console.log(req.body)
-    res.json({ok:true})
+    const token = await client.token.create({
+        data: {
+            payload: "12345",
+            user: {
+                connectOrCreate: {
+                    where: {
+                        ...payload
+                    },
+                    create: {
+                        name: "Anonymous",
+                        ...payload
+                    },
+                }
+            }
+        }
+    })
+
+    return res.status(200).end()
 }
+
+export default withHandler("POST", handler)

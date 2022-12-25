@@ -70,8 +70,7 @@ export default function Layout({
         </div>
       </div>
 
-
-      <div className={cls("z-10 absolute bg-white w-2/3 min-h-full right-0 transition-all ease-in duration-500", isOpen ? "" : "translate-x-[100%] hidden")}>
+      <div className={cls("z-10 absolute bg-white w-2/3 h-full right-0 transition-all ease-in duration-500 lg:hidden", isOpen ? "" : "translate-x-[100%] hidden")}>
         <div className="flex flex-col w-full pl-3">
           <span className="pl-4 pt-8 text-2xl gray">Shop</span>
           <span className="pl-6 pt-1 text-lg cursor-pointer hover:border-2 hover:border-dashed hover:font-bold">All</span>
@@ -84,7 +83,9 @@ export default function Layout({
         </div>
       </div>
 
-      <div className={cls("top-0 static pt-0 z-[-10]", hasTabBar ? "pb-24" : "")}>{children}</div>
+      <div className={cls("top-0 static pt-0 z-[-2]", hasTabBar ? "" : "")}>{children}</div>
+
+
     </div>
   );
 }

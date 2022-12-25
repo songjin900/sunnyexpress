@@ -25,7 +25,7 @@ export default function Home() {
         <div className="grid grid-cols-2 grid-rows-2
         sm:grid-cols-3    
         lg:grid-cols-4  
-        gap-5 bg-gray-100 py-5 px-5  min-h-screen">
+        gap-5 bg-gray-100 py-5 px-5">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((_, i) => (
             <Item id={i}
               key={i}
