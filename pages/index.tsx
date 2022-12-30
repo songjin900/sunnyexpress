@@ -1,7 +1,10 @@
-import Item from "../components/items";
-import Layout from "../components/layout";
+import useUser from "@libs/client/useUser";
+import Item from "@components/items";
+import Layout from "@components/layout";
 
 export default function Home() {
+  const {user, isLoading} = useUser();
+  // console.log(user)
   return (
     <Layout title="Home" hasTabBar>
       <div className="grid grid-cols-2 items-center p-2 border border-gray-300 lg:hidden">
