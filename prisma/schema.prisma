@@ -13,7 +13,7 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
-  phone     Int?     @unique
+  phone     String?   @unique
   email     String?  @unique
   name      String
   avatar    String?
@@ -27,20 +27,23 @@ model Token {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   payload   String   @unique
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete:Cascade)
   userId    Int
+
+  @@index([userId])
 }
 
-model UserSE {
-  id Int @id @default(autoincrement())
-  firstName String?
-  lastName String?
-  address String?
-  postalCode String?
-  phone Int? @unique
-  email String? @unique
-  avatar String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
+
+// model UserSE {
+//   id Int @id @default(autoincrement())
+//   firstName String?
+//   lastName String?
+//   address String?
+//   postalCode String?
+//   phone Int? @unique
+//   email String? @unique
+//   avatar String?
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
 
