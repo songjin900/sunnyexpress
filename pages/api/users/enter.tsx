@@ -7,10 +7,8 @@ import smtpTransport from "@libs/server/email";
 const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN)
 
 async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) {
-    console.log("i am in enter. api/users/enter")
-    console.log(req)
     const { phone, email } = req.body;
-    const user = phone ? { phone: +phone } : email ? { email } : null;
+    const user = phone ? { phone: phone } : email ? { email } : null;
     if (!user)
         return res.status(400).json({ ok: false });
     const payload = Math.floor(100000 + Math.random() * 900000) + "";
@@ -69,4 +67,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
     })
 }
 
-export default withHandler({ method: "POST", handler, isPrivate: false })
+export default withHandler({ methods: ["POST"], handler, isPrivate: false })

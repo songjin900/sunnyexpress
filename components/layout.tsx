@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { cls } from "../libs/client/utils";
+import { cls } from "@libs/client/utils";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -84,8 +84,52 @@ export default function Layout({
       </div>
 
       <div className={cls("top-0 static pt-0 z-[-2]", hasTabBar ? "" : "")}>{children}</div>
-
-
+      <div className="grid grid-cols-4 mt-2 mb-10 border-t-2">
+        <div className="border-r-2 pl-6 pt-2">
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Shop</h2>
+          <ul className="text-gray-600 dark:text-gray-400">
+            <li className="mb-4">
+              <a className="hover:underline">Flowbite</a>
+            </li>
+            <li>
+              <a className="hover:underline">Tailwind CSS</a>
+            </li>
+          </ul>
+        </div>
+        <div className="border-r-2 pl-6 pt-2">
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Shop</h2>
+          <ul className="text-gray-600 dark:text-gray-400">
+            <li className="mb-4">
+              <a className="hover:underline">Flowbite</a>
+            </li>
+            <li>
+              <a className="hover:underline">Tailwind CSS</a>
+            </li>
+          </ul>
+        </div>
+        <div className="border-r-2 pl-6 pt-2">
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Shop</h2>
+          <ul className="text-gray-600 dark:text-gray-400">
+            <li className="mb-4">
+              <a className="hover:underline">Flowbite</a>
+            </li>
+            <li>
+              <a className="hover:underline">Tailwind CSS</a>
+            </li>
+          </ul>
+        </div>
+        <div className="pl-6 pt-2">
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Shop</h2>
+          <ul className="text-gray-600 dark:text-gray-400">
+            <li className="mb-4">
+              <a className="hover:underline">Flowbite</a>
+            </li>
+            <li>
+              <a className="hover:underline">Tailwind CSS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

@@ -26,7 +26,23 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
             userId: foundToken.userId
         }
     })
+    
+    // const userdetail = await client.userDetail.create({
+    //     data: {
+    //         user: {
+    //             connectOrCreate: {
+    //                 where: {
+    //                     id === 2
+    //                 },
+    //                 create: {
+    //                     ...user
+    //                 }
+    //             }
+    //         }
+    //     }
+    // })
+
     res.json({ok:true});
 }
 
-export default withApiSession(withHandler({ method: "POST", handler, isPrivate: false }));
+export default withApiSession(withHandler({ methods: ["POST"], handler, isPrivate: false }));
