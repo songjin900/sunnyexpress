@@ -17,14 +17,14 @@ async function handler(
           },
         },
         Categories: {
-          select:{
+          select: {
             name: true,
-            productId: true
-          }
+            productId: true,
+          },
         },
       },
     });
-   
+
     res.json({
       ok: true,
       products,
@@ -32,7 +32,7 @@ async function handler(
   }
   if (req.method === "POST") {
     const {
-      body: { name, price, description },
+      body: { name, price, description, category },
       session: { user },
     } = req;
 
@@ -50,9 +50,22 @@ async function handler(
       },
     });
 
+    const productCategory = category.map(async (ctg: string) => {
+      await client.category.create({
+        data: {
+          name: ctg,
+          product: {
+            connect: {
+              id: Number(product.id)
+            }
+          }
+        },
+      });
+    });
+
     res.json({
       ok: true,
-      product,
+      product
     });
   }
 }

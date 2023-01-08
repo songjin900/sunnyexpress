@@ -13,6 +13,7 @@ interface UploadProductForm {
   name: string;
   price: number;
   description: string;
+  category: string[];
 }
 
 interface UploadProductMutation {
@@ -25,6 +26,7 @@ const Upload: NextPage = () => {
   const { register, handleSubmit } = useForm<UploadProductForm>();
   const [uploadProduct, { loading, data }] = useMutation<UploadProductMutation>("/api/products")
   const onValid = (data: UploadProductForm) => {
+    console.log(data);
     if (loading)
       return;
     uploadProduct(data)
@@ -66,8 +68,25 @@ const Upload: NextPage = () => {
             type="text"
             kind="price"
           />
+          <Input register={register("category", { required: true })}
+            label="Category"
+            name="category"
+            type="text"
+            kind="checkbox"
+          />
+
           <TextArea register={register("description", { required: true })} name="description" label="Description" />
           <Button text={loading ? "loading..." : "Upload Product"} />
+          {/* <>
+            <div className="flex items-center mb-4">
+              <input type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="default-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Default checkbox</label>
+            </div>
+            <div className="flex items-center">
+              <input checked id="checked-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="checked-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Checked state</label>
+            </div>
+          </> */}
         </form>
       </div>
     </Layout>
